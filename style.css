@@ -1,0 +1,41 @@
+*{
+    font-family:"Jaro",sans-serif;
+    font-weight:400;
+    font-style: normal;
+margin:0px;
+padding:0px;}
+header{
+    padding:10px;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+   
+
+}
+
+.eat{
+    margin-left:5px;
+    font-size:20px;
+}
+.icon{
+    height:15px;
+}
+.purple{
+    color:rgb(103, 1, 255);
+} 
+.headerflex{
+    display:flex;
+    align-items: center;
+}
+.flex3{
+    display:flex;
+    list-style: none;
+    gap:20px;
+    height:20px;
+    margin-right:200px;
+    
+}
+a{
+    color:rgb(103, 1, 255);
+    text-decoration: none;
+}
