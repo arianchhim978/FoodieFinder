@@ -39,3 +39,9 @@ a{
     color:rgb(103, 1, 255);
     text-decoration: none;
 }
+a:hover{
+    color:black;
+}
+#map {
+    height: 100%;
+  }
