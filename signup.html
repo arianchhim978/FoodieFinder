@@ -4,37 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EatsExplorer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alata&family=Cuprum:ital,wght@0,400..700;1,400..700&family=Jaro:opsz@6..72&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-<link rel = 'stylesheet' href="style.css">
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap" async defer></script>
-
+    <style>
+        /* Add your CSS styles here */
+        .login-button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+    </style>
 </head>
 <body> 
     <header>
         <div class="headerflex">
-        <img class='icon'src="icons8-location-pin-50 (1).png">
-        <h1 class="eat">Eats <span class="purple"><a href='index.html'>Explorer</a></span></h1>
+            <img class='icon' src="icons8-location-pin-50 (1).png">
+            <h1 class="eat">Eats <span class="purple"><a href='index.html'>Explorer</a></span></h1>
         </div>
         <ul class="flex3">
-            
-           <li><a href="signup.html">Login/SignUp</a></li>
+            <li><button id="login" class="login-button">Login with Google</button></li>
+            <li><a href="#" id="signup">Sign Up</a></li>
         </ul>
-
-
-
     </header> 
-    <body>
-        <div id="map"></div>
-        
-       
- 
- 
 
- 
+    <!-- Your other content goes here -->
 
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-analytics.js"></script>
+
+    <!-- Firebase configuration -->
+    <script>
+      const firebaseConfig = {
+    apiKey: "AIzaSyCg5SXQGFGIK_6ujn1SIOtMivFBwEr4p1w",
+    authDomain: "eatsexplorer-2d2f6.firebaseapp.com",
+    projectId: "eatsexplorer-2d2f6",
+    storageBucket: "eatsexplorer-2d2f6.appspot.com",
+    messagingSenderId: "977553830741",
+    appId: "1:977553830741:web:004d0aa9ab6ce6c9e3b5dc",
+    measurementId: "G-GMJXCKBFPV"
+  };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
+    <!-- Firebase Authentication script -->
+    <script>
+        const loginButton = document.getElementById('login');
+
+        loginButton.addEventListener('click', () => {
+            const provider = new firebase.auth.GoogleAuthProvider();
+            firebase.auth().signInWithPopup(provider)
+            .then((result) => {
+                // You can access the user's information here, for example:
+                // const user = result.user;
+                console.log("User signed in successfully!");
+            })
+            .catch((error) => {
+                // Handle errors here
+                console.error("Error signing in:", error);
+            });
+        });
+    </script>
 </body>
-
-
 </html>
